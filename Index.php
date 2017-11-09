@@ -6,6 +6,7 @@
 <title> refugee </title>
 </head>
 <?php include("header.php");?>
+<?php include("connexion.php");?>
 
 <body>
 
