@@ -1,12 +1,14 @@
+<?php session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang ="fr">
 	<head>
 		<meta charset ="utf-8">
 
-		<title> DON </title>
+		<title> refugee </title>
 	</head>
 	<?php include("header.php");?>
-	<?php include("connexion.php");?>
 
 
 	<body>
