@@ -43,7 +43,7 @@
 .montant:hover {
     box-shadow: 0 0 4px #2b5580;
 }
- .montant.selected, .montant.selected:hover {
+ .montant.selected, .montant.selected:hover ,input:focus {
     background: #2b5580;
     color: #FFFFFF;
 }

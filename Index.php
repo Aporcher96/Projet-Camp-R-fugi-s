@@ -43,8 +43,8 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#intro">Home</a></li>
         <li><a href="connexion.php">connexion</a></li>
-			
-       
+
+
       </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -54,7 +54,7 @@
 
 	<!-- Section: intro -->
     <section id="intro" class="intro">
-	
+
 		<div class="slogan">
 			<h2>Bienvenue sur  <span class="text_color">Le projet Migrant</span> </h2>
 			<h4>LEs leaders dans l'aide apporté aux migrants</h4>
@@ -163,11 +163,11 @@
                 </div>
 				</div>
             </div>
-        </div>		
+        </div>
 		</div>
 	</section>
 	<!-- /Section: about -->
-		
+
 
 	<!-- Section: don -->
     <section id="don" class="home-section text-center">
@@ -194,36 +194,36 @@
 						<input type="hidden" name="selectedCurrency" value="978" />
                     </h1>
 					<fieldset class="step" >
-								
+
 						<legend>Je donne une fois</legend>
 						<div>
 							<span class="montant mon-don" id="50">50</span>
 							<span class="montant mon-don" id="150">150</span>
 							<span class="montant mon-don" id="200">200</span>
-							
 
-                            
+
+
 							<span class="montant custom select" id="single">
-                                <input type="text" name="custom-single" autocomplete="HackChromeBug" id="custom-single" class="custom-don" value=""> <span class="selectedCurrency ">€</span>
+                                <input type="text" name="custom-single"  id="custom-single" class="custom-don" value=""> <span class="selectedCurrency "> <span class="euro">€</span></span>
                             </span>
-                            
+
 						</div>
-                                                
+
 					</fieldset>
 					<fieldset class="step" >
 						<legend>Je donne régulièrement</legend>
 						<div>
 							<span class="montant monthly-don" id="15">15</span>
 							<span class="montant monthly-don" id="30">30</span>
-							<span class="montant monthly-don" id="60">60</span>		
-							
+							<span class="montant monthly-don" id="60">60</span>
+
 							<span class="montant custom select " id="monthly">
                                 <input type="text" name="custom-monthly" id="custom-monthly" autocomplete="HackChromeBug" class="custom-don" value=""> <span class="selectedCurrency ">€</span>
                             </span>
 						</div>
 						<input type="hidden" id="monthlyDon" name="monthly-don">
                         <select id="izi_formdonbundle_ordermodel_frequency" name="izi_formdonbundle_ordermodel[frequency]"><option value="M">chaque mois</option><option value="T">chaque trimestre</option></select>
-                            
+
 					</fieldset>
 					<p>
 						<span class="title">Ma déduction fiscale</span><br>
@@ -235,8 +235,8 @@
 			</FORM>
 
 	</section>
-	
-	
+
+
 
 	<!-- /Section: contact -->
 
@@ -251,21 +251,21 @@
 						</a>
 					</div>
 					</div>
-					<p>&copy;Copyright 2014 - Squad. All rights reserved. <a href="http://bootstraptaste.com/">Bootstrap Themes</a> by BootstrapTaste</p>
-                    <!-- 
-                        All links in the footer should remain intact. 
+					<p>&copy;Copyright 2017 -Dracarys. All rights reserved. <a href="http://bootstraptaste.com/">Bootstrap Themes</a> by BootstrapTaste</p>
+                    <!--
+                        All links in the footer should remain intact.
                         Licenseing information is available at: http://bootstraptaste.com/license/
                         You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Squadfree
                     -->
 				</div>
-			</div>	
+			</div>
 		</div>
 	</footer>
 
     <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
+    <script src="js/jquery.easing.min.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
 	<script src="js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
@@ -281,15 +281,15 @@
 function calculCost(val){
 	var nombre = $.isNumeric(val);
 	if (nombre){
-    
+
                     $("#montant-don").text(val);
             var numVal = Number(val);
             var reducAmont = numVal*66/100;
                 reducAmont = numVal*66/100;
                 numVal = numVal - reducAmont;
                 $("#montant-reduit").text(numVal.toFixed(0));
-                
-    
+
+
 
 	} else {
 		$("#montant-don").text(0);
@@ -360,7 +360,7 @@ $("#custom-single").keyup(function(){
  	calculCost(valeur);
  });
 
-// show/hide champ organisation  
+// show/hide champ organisation
 $("#orga").click(function(){
 	var isChecked = $('#orga').prop('checked');
 	if(isChecked){
@@ -372,13 +372,13 @@ $("#orga").click(function(){
 
  // bouton single don
  $(".paiement-cb").click(function(){
- 	$(".means").val('CB');	
+ 	$(".means").val('CB');
  });
  // bouton monthly don
  $(".paiement-pa").click(function(){
  	$(".means").val('PA');
  });
 
-}); // End    
+}); // End
 </script>
 </html>
