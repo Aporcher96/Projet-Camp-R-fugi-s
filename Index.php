@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Projet Migrant</title>
+    <title>Projet Réfugiés</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <h1>Projet Migrant</h1>
+                    <h1>Projet Réfugié</h1>
                 </a>
             </div>
 
@@ -56,8 +56,8 @@
     <section id="intro" class="intro">
 
 		<div class="slogan">
-			<h2>Bienvenue sur  <span class="text_color">Le projet Migrant</span> </h2>
-			<h4>LEs leaders dans l'aide apporté aux migrants</h4>
+			<h2>Bienvenue sur  <span class="text_color">Le projet RÉFUGIÉ</span> </h2>
+			<h4>Les leaders dans l'aide apportée aux réfugiés</h4>
 		</div>
 		<div class="page-scroll">
 			<a href="#about" class="btn btn-circle">
@@ -97,7 +97,7 @@
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Julie Estruch</h5>
-                        <p class="subtitle">Chef de projet</p>
+                        <p class="subtitle">Chef de projet & développeuse back-end</p>
                         <div class="avatar"><img src="img/team/1.jpg" alt="" class="img-responsive img-circle" /></div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Antoine Caccin</h5>
-                        <p class="subtitle">Administrateur</p>
+                        <p class="subtitle">Administrateur de base de données & développeur back-end</p>
                         <div class="avatar"><img src="img/team/5.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
@@ -120,7 +120,7 @@
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Valentin Vaucher</h5>
-                        <p class="subtitle">Devellopeur</p>
+                        <p class="subtitle">Administrateur de base de donnée et développeur back-end</p>
                         <div class="avatar"><img src="img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
@@ -131,8 +131,8 @@
 				<div class="wow bounceInUp" data-wow-delay="0.8s">
                 <div class="team boxed-grey">
                     <div class="inner">
-						<h5>Antoine Barbençon</h5>
-                        <p class="subtitle">Develloper</p>
+						<h5>Antoine Barbançon</h5>
+                        <p class="subtitle">Développeur back-end</p>
                         <div class="avatar"><img src="img/team/4.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
@@ -144,7 +144,7 @@
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Edouard Haentjens</h5>
-                        <p class="subtitle">Develloper web</p>
+                        <p class="subtitle">Développeur web</p>
                         <div class="avatar"><img src="img/team/6.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
@@ -156,7 +156,7 @@
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Alexandre Porcher</h5>
-                        <p class="subtitle">Develloper web</p>
+                        <p class="subtitle">Développeur web</p>
                         <div class="avatar"><img src="img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
@@ -195,7 +195,7 @@
                     </h1>
 					<fieldset class="step" >
 
-						<legend>Je donne une fois</legend>
+						<legend>Don occasionnel</legend>
 						<div>
 							<span class="montant mon-don" id="50">50</span>
 							<span class="montant mon-don" id="150">150</span>
@@ -211,7 +211,7 @@
 
 					</fieldset>
 					<fieldset class="step" >
-						<legend>Je donne régulièrement</legend>
+						<legend>Don régulier</legend>
 						<div>
 							<span class="montant monthly-don" id="15">15</span>
 							<span class="montant monthly-don" id="30">30</span>
@@ -297,7 +297,7 @@ function calculCost(val){
 	};
 };
 
- // bouton single don
+ // bouton don occasionnel
  $(".mon-don").click(function(){
  	var valeur = $(this).attr("id");
  	$(".amount").attr("value",valeur);
@@ -306,7 +306,7 @@ function calculCost(val){
  	$(this).addClass("selected");
  	calculCost(valeur);
  });
- // bouton monthly don
+ // bouton don mensuel
  $(".monthly-don").click(function(){
  	var valeur = $(this).attr("id");
  	$(".amount").attr("value",valeur);
@@ -318,7 +318,7 @@ function calculCost(val){
 
 
 
- //input single don
+ //saisie don occasionnel
 $("#custom-single").keyup(function(){
  	this.value = this.value.replace(/[^0-9\.]/g,'');
  	$(".amount").val(this.value);
@@ -339,7 +339,7 @@ $("#custom-single").keyup(function(){
  	calculCost(valeur);
  });
 
- // input monthly don
+ // saisie don mensuel
  $("#custom-monthly").keyup(function(){
  	this.value = this.value.replace(/[^0-9\.]/g,'');
     $(".amount").val(this.value);
@@ -370,15 +370,15 @@ $("#orga").click(function(){
 	};
 });
 
- // bouton single don
+ // bouton don occasionnel
  $(".paiement-cb").click(function(){
  	$(".means").val('CB');
  });
- // bouton monthly don
+ // bouton mensuel
  $(".paiement-pa").click(function(){
  	$(".means").val('PA');
  });
 
-}); // End
+});
 </script>
 </html>
