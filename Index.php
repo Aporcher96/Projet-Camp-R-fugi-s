@@ -97,7 +97,7 @@
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Julie Estruch</h5>
-                        <p class="subtitle">Chef de projet & développeuse back-end</p>
+                        <p class="subtitle">Chef de projet & développeuse back-end       </p>
                         <div class="avatar"><img src="img/team/1.jpg" alt="" class="img-responsive img-circle" /></div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Valentin Vaucher</h5>
-                        <p class="subtitle">Administrateur de base de donnée et développeur back-end</p>
+                        <p class="subtitle">Administrateur de base de donnée & développeur back-end</p>
                         <div class="avatar"><img src="img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>

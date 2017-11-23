@@ -1,3 +1,11 @@
+	
+	
+	
+	
+	
+	
+	
+	
 	<?php session_start(); ?>
 	<?php
 
@@ -99,5 +107,5 @@
 						<FORM>
 							<INPUT TYPE="button" NAME="Refugies" VALUE="ACCÉDEZ A LA GESTION DU STOCK DE VOTRE CENTRALE">
 							</FORM>
-			<?php }
+					<?php }
 		} ?>
