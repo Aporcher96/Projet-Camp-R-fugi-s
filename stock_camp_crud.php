@@ -27,7 +27,7 @@
 <br />
 <div class="row">
 
-                <a href="form_add_refugies.php" class="btn btn-success">Ajouter un stock</a>
+                <a href="stock_camp_form_add.php" class="btn btn-success">Ajouter un stock</a>
 
 
 <br />
@@ -135,7 +135,7 @@
 ';
                             echo'
 
-<td>' . $row['AlerteQtCamp'] . '</td>
+<td>' . $alerte_camp . '</td>
 <p>
 ';
 
