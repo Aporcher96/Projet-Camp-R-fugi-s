@@ -2,7 +2,7 @@
 
 
   $id_ville_camp = $_POST['Ville'];
-  $_SESSION['id_ville_camp']=   $id_ville_camp;
+
 
 $pdo = Database::connect();
 $sql = 'SELECT * FROM quantitecamp'; // Notre requête de base qui recherche la table quantite camp_sql

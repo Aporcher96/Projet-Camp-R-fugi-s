@@ -40,6 +40,10 @@ echo $QtCamp;
 echo $QuantiteMax;
 echo $AlerteQtCamp;
 
+
+  header('Location: stock_camp_crud.php');      
+
+
 /*
 
 

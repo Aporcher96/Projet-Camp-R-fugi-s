@@ -149,7 +149,7 @@
                             echo '
 
 <td>';
-                            echo '<a class="btn btn-success" href="form_modify_refugies.php?id=' . $row['IdCamp'] . $row['IdMateriel'] . '">Modifier</a>';
+                            echo '<a class="btn btn-success" href="form_camp_modify.php?id=' . $row['IdCamp'] . $row['IdMateriel'] . '">Modifier</a>';
                             echo '</td>
 <p>
 ';
