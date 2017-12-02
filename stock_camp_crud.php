@@ -157,7 +157,7 @@
                             echo'
 
 <td>';
-                            echo '<a class="btn btn-danger" href="file_delete_refugies.php?id=' . $row['IdCamp'] . $row['IdMateriel'] . ' ">Supprimer</a>';
+                            echo '<a class="btn btn-danger" href="file_delete_stock_camp.php?id=' . $row['IdCamp'] . $row['IdMateriel'] . ' ">Supprimer</a>';
                             echo '</td>
 <p>
 ';

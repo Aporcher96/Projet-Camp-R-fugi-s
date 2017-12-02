@@ -40,7 +40,7 @@ if (null==$id_materiel)
       $q->bindParam(':id_materiel',$id_materiel);
       $q->bindParam(':id_camp',$id_camp);
       $q->execute();
-      
+
       $sql_materiel =" SELECT * FROM materiel, quantitecamp Where materiel.IdMateriel=quantitecamp.IdMateriel";
       $mat_camp_sql= $pdo->query($sql_materiel);
       $sql_camp= "SELECT * FROM camp, quantitecamp where camp.IdCamp=quantitecamp.IdCamp";
@@ -95,12 +95,24 @@ foreach($pdo->query($sql_materiel) as $row_mat_camp)
 
 <form action="send_data_modify_stock_camp.php" method="post">
 
-  <?php echo '<input type="text" name="id_ville_camp" value="'.$data['IdCamp'].'" /> <br/>'; ?>
-  <p>
-    <br/>
+  <?php echo '<input type="hidden" name="id_ville_camp" value="'.$data['IdCamp'].'" /> <br/>'; ?>
 
-  <?php echo '<input type="text" name="id_materiel_camp" value="'.$data['IdMateriel'].'" /> <br/>'; ?>
-  <p>
+
+  <?php echo '<input type="hidden" name="id_materiel_camp" value="'.$data['IdMateriel'].'" /> <br/>'; ?>
+
+
+  
+    <div class="control-group">
+          <label class="control-label">Quantité possédé par votre camp</label>
+
+    <br/>
+    <div class="controls">
+          <?php echo '<input type="text" name="Qt_possede" value="'.$data['QtCamp'].'"readonly="readonly">  <br/>'; ?>
+    </div>
+    <p>
+
+    </div>
+    <p>
 
   <br/>
   <div class="control-group">

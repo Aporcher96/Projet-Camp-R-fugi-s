@@ -24,7 +24,7 @@ $q->bindParam(':id_materiel',$id_materiel);
 $q->bindParam(':id_camp',$id_camp);
 $data= $q->execute();
 
-$v_quantite= $data['QtCamp'];
+$v_quantite= $_POST['Qt_possede'];
 $v_quantite= $v_quantite - $_POST['Quantite_retire'];
 
 
@@ -49,6 +49,12 @@ if ($v_quantite <= $calcul_percent)
   $AlerteQtCamp=0;
 }
 
+if($v_quantite <0)
+{
+  $v_quantite = 0;
+}
+
+
 try{
   $stmt-> execute();
 }catch(Exception $e){
@@ -58,7 +64,8 @@ try{
 
 
 
-  //header('Location: stock_camp_crud.php');
+
+  header('Location: stock_camp_crud.php');
 
 
 
