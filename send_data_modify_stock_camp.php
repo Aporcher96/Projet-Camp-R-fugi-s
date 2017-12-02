@@ -22,28 +22,27 @@ $sql = "SELECT * FROM quantitecamp Where IdMateriel = :id_materiel and IdCamp = 
 $q= $pdo->prepare($sql);
 $q->bindParam(':id_materiel',$id_materiel);
 $q->bindParam(':id_camp',$id_camp);
-$v_quantite=
+$data= $q->execute();
 
-$stmt = $pdo->prepare("UPDATE quantitecamp Set AlerteQtCamp=:AlerteQtCamp, QtCamp = :QtCamp, QuantiteMax=:QuantiteMax WHERE IdCamp=$id_camp and IdMateriel = $id_materiel");
+$v_quantite= $data['QtCamp'];
+$v_quantite= $v_quantite - $_POST['Quantite_retire'];
+
+
+$stmt = $pdo->prepare("UPDATE quantitecamp Set AlerteQtCamp=:AlerteQtCamp, QtCamp = :QtCamp, QuantiteMax=:QuantiteMax WHERE IdCamp=:IdCamp and IdMateriel = :IdMateriel");
 $stmt->bindParam(':IdCamp', $IdCamp);
 $stmt->bindParam(':IdMateriel', $IdMateriel);
 $stmt-> bindParam(':AlerteQtCamp', $AlerteQtCamp);
-$stmt-> bindParam(':QtCamp', $QtCamp);
+$stmt-> bindParam(':QtCamp', $v_quantite);
 $stmt-> bindParam(':QuantiteMax', $QuantiteMax);
+
 
 $IdCamp=$_POST['id_ville_camp'];
 $IdMateriel=$_POST['id_materiel_camp'];
 $QuantiteMax=$_POST['QuantiteMax'];
-while ($_POST['Quantite']>$_POST['QuantiteMax']){
-
-}
-$QtCamp=$_POST['Quantite'];
 
 $calcul_percent = (($QuantiteMax*10)/100);
 
-
-
-if ($QtCamp <= $calcul_percent)
+if ($v_quantite <= $calcul_percent)
 {
   $AlerteQtCamp=1;
 }else{
@@ -52,19 +51,14 @@ if ($QtCamp <= $calcul_percent)
 
 try{
   $stmt-> execute();
-  echo 'coucou';
 }catch(Exception $e){
   echo $e->getMessage;
 }
 
-echo $IdCamp;
-echo $IdMateriel;
-echo $QtCamp;
-echo $QuantiteMax;
-echo $AlerteQtCamp;
 
 
-  header('Location: stock_camp_crud.php');
+
+  //header('Location: stock_camp_crud.php');
 
 
 

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html">
+        <meta charset="UTF-8">
         <title>Listes des Stocks</title> <!--A modifier en Stock du 'nomDeLaVilleDuCamp'-->
 
         	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -142,7 +143,7 @@
                             echo '
 
 <td>';
-                            echo '<a class="btn" href="form_read_refugies.php?id=' . $row['IdCamp'] . $row['IdMateriel'] . '">Afficher</a>';
+                            echo '<a class="btn" href="form_read_stock_camp.php?id=' . $row['IdCamp'] . $row['IdMateriel'] . '">Afficher</a>';
                             echo '</td>
 <p>
 ';
