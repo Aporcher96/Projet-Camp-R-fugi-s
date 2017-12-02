@@ -1,0 +1,53 @@
+.montant.mon-don{
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 6px;
+    padding: 8px 0;
+    width: 64px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 26px;
+    cursor: pointer;
+    border: 1px solid #999;
+    box-shadow: 0 0 2px #999;
+}
+
+.montant {
+    display: inline-block;
+
+    margin-bottom: 6px;
+
+    text-align: center;
+    font-size: 18px;
+    line-height: 26px;
+    cursor: pointer;
+    border: 1px solid #999;
+	
+}
+.montant.monthly-don{
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 6px;
+    padding: 8px 0;
+    width: 64px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 26px;
+    cursor: pointer;
+    border: 1px solid #999;
+    box-shadow: 0 0 2px #999;
+}
+.custom {
+    padding: 4px 0;
+}
+.montant:hover {
+    box-shadow: 0 0 4px #2b5580;
+}
+ .montant.selected, .montant.selected:hover ,input:focus {
+    background: #2b5580;
+    color: #FFFFFF;
+}
+
+.boxed-grey{
+	height:300px;
+}
