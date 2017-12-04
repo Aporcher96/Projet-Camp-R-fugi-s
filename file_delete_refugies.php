@@ -1,4 +1,4 @@
-<?php require 'database_connexion.php';
+<?php require ('database_connexion.php');
 $id=0;  
 
 if(!empty($_GET['id']))
@@ -17,7 +17,7 @@ if(!empty($_POST))
 	Database::disconnect();
 	header("Location: refugies_crud.php");
 }
-
+?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -48,21 +48,21 @@ alt="<script>" title="<script>" />
 
 			<br/>
 			<form class="form-horizontal" action="file_delete_refugies.php" method="post">
-			<input type="hidden" name="id" value="<?php echo $id;?>"/>
+				<input type="hidden" name="id" value="<?php echo $id;?>"/>
 	
-			Êtes-vous sûre de vouloir supprimer ce réfugié ?
+				Êtes-vous sûre de vouloir supprimer ce réfugié ?
 
-			<br/>
-			<div class="form-actions">
-				<button type="submit" class="btn btn-danger">Oui</button>
-				<a class="btn" href="refugies_crud.php">Non</a>
-			</div>
-			<p>	
+				<br/>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-danger">Oui</button>
+					<a class="btn" href="refugies_crud.php">Non</a>
+				</div>
+				<p>	
 			</form>
 			<p>
 		</div>
 		<p>
 	</div>
-<p>
+	<p>
 </body>
 </html>

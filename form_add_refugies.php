@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<title>Titre</title>
+		<title>Ajout d'un réfugié</title>
 	</head>
 	
 	<body>
-		<?php include 'database_connexion.php';
+		<?php require ('database_connexion.php');
 		$pdo = Database::connect();
 		$sql = 'SELECT * FROM nationalite';
 		$rep = $pdo->query($sql);
@@ -18,14 +18,43 @@
 			Nom:<br/>
 			<input type="text" name="Nom" value=""/>
 			<p>
-		
+			<?php
+				/*if ((ctype_alpha($_POST['Nom']))==false)
+				{
+					echo("Le nom entré n'est pas valable ! ");
+				}
+				if (empty($_POST['Nom']))
+				{
+					echo('Le champ nom est vide ! ');
+				}				 
+				if (strlen($_POST['Nom'])>25)
+				{
+					echo('Votre nom est trop long ! ');
+				}*/
+			?>
 			Prenom:<br/>
 			<input type="text" name="Prenom" value=""/>
 			<p>
+			<?php
+				/*if ((ctype_alpha($_POST['Prenom']))==false)
+				{
+					echo("Le prénom entré n'est pas valable ! ");
+				}
+				if (empty($_POST['Prenom']))
+				{
+					echo('Le champ prénom est vide ! ');
+				}				 
+				if (strlen($_POST['Prenom'])>25)
+				{
+					echo('Votre prénom est trop long ! ');
+				}*/
+			?> 
 		
 			Date de naissance:<br/>
-			<input type="date" name="DateNaiss" value=""/>
+			<input type="date" max=date() name="DateNaiss" value=""/>
 			<p>
+			
+			
 		
 			Illetrisme ?:<br/>
 			<select name="Illetre">

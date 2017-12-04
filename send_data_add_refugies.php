@@ -1,8 +1,6 @@
 <?php
-	include 'database_connexion.php';
-	
+	require ('database_connexion.php');
 	$pdo= Database::connect();
-	
 	$stmt = $pdo->prepare("INSERT INTO refugies (Nom, Prenom, DateNaiss, Illetre, Blesse, Conscient, IdNationalite, IdCamp) VALUES (:Nom, :Prenom, :DatenNaiss, :Illetre, :Blesse, :Conscient, :IdNationalite, :IdCamp)");
 	$stmt->bindParam(':Nom', $nom);
 	$stmt->bindParam(':Prenom', $prenom);

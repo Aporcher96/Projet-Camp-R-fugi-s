@@ -7,7 +7,7 @@ class Database
 	private static $dbUserPassword = '';
 	private static $cont = null;
 
-	public function __construct()
+	public function _construct()
 	{
 		die('Init function is not allowed');
 	}
@@ -18,7 +18,7 @@ class Database
 		{
 			try
 			{
-				self::$cont = new POO( "mysql::host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
+				self::$cont = new PDO( "mysql::host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
 			}
 			catch(PDOException $e)
 			{
@@ -35,3 +35,4 @@ class Database
 
 
 }
+?>

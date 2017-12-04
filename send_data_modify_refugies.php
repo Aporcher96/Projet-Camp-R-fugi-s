@@ -1,5 +1,5 @@
 <?php
-require 'database_conneion.php';
+require ('database_connexion.php');
 $id = null;
 if (!empty($_GET["id"]))
 {
