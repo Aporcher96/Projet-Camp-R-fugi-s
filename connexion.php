@@ -35,15 +35,15 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
+               
                     <h1>Projet Migrant</h1>
-                </a>
+              
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="Index.php">Home</a></li>
+				<li class="active"><a href="Index.php">Acceuil</a></li>
 				<li><a href="connexion.php">connexion</a></li>
 
 
@@ -89,16 +89,25 @@
 		</div>
 		
 		<form method="post" action="menu.php">
-		   <p>
-		       <label for="pseudo">Votre pseudo :</label>
-		       <input type="text" name="pseudo" id="pseudo" />
+		   <center><div>
+			<table>
+				<tr>
+					<td><label for="pseudo">Votre pseudo :</label></td>
+					<td><input type="text" name="pseudo" id="pseudo" /></td>
+				</tr>
+				<tr>
+					<td><label for="pass">Mot de passe :</label></td>
+					<td><input type="password" name="pass" id="pass" /></td>
+				</tr>
+				<tr>
+					<td colspan=2><input type="submit" value="Envoyer" /></td>
+				</tr>
+			</table>
+			</div>
+			</center>
 		       
-		       <br />
-		       <label for="pass">mot de passe :</label>
-		       <input type="password" name="pass" id="pass" />
-		       <input type="submit" value="Envoyer" />
 		       
-		   </p>
+		  
 		</form>
     </section>
 	<!-- /Section: connexion -->

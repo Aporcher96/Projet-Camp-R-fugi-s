@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  Dim 26 nov. 2017 à 11:50
+-- Généré le :  mer. 29 nov. 2017 à 13:29
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `refugies_project`
 --
+CREATE DATABASE IF NOT EXISTS `refugies_project` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `refugies_project`;
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,8 @@ INSERT INTO `materiel` (`IdMateriel`, `NomMateriel`) VALUES
 (9, 'Produits ménagers'),
 (10, 'Biberons'),
 (11, 'Lait en poudre'),
-(12, 'Couches');
+(12, 'Couches'),
+(13, 'Croquettes');
 
 -- --------------------------------------------------------
 
@@ -424,6 +427,7 @@ INSERT INTO `quantitecamp` (`IdCamp`, `IdMateriel`, `AlerteQtCamp`, `QtCamp`, `Q
 (1, 10, 0, 20, 20),
 (1, 11, 0, 80, 80),
 (1, 12, 0, 45, 45),
+(1, 13, 1, 0, 50),
 (2, 1, NULL, NULL, NULL),
 (2, 2, NULL, NULL, NULL),
 (2, 3, NULL, NULL, NULL),
@@ -432,6 +436,7 @@ INSERT INTO `quantitecamp` (`IdCamp`, `IdMateriel`, `AlerteQtCamp`, `QtCamp`, `Q
 (2, 6, NULL, NULL, NULL),
 (2, 7, NULL, NULL, NULL),
 (2, 8, NULL, NULL, NULL),
+(2, 9, 1, 0, 100),
 (3, 1, NULL, NULL, NULL),
 (3, 2, NULL, NULL, NULL),
 (3, 3, NULL, NULL, NULL),
@@ -652,7 +657,7 @@ ALTER TABLE `centrale`
 -- AUTO_INCREMENT pour la table `materiel`
 --
 ALTER TABLE `materiel`
-  MODIFY `IdMateriel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `IdMateriel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `nationalite`
 --
