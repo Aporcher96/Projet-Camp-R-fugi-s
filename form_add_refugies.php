@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<title>Titre</title>
+		<title>Ajout d'un réfugié</title>
 	</head>
 	
 	<body>
-		<?php include 'database_connexion.php';
+		<?php require ('database_connexion.php');
 		$pdo = Database::connect();
 		$sql = 'SELECT * FROM nationalite';
 		$rep = $pdo->query($sql);
@@ -18,14 +18,15 @@
 			Nom:<br/>
 			<input type="text" name="Nom" value=""/>
 			<p>
-		
 			Prenom:<br/>
 			<input type="text" name="Prenom" value=""/>
 			<p>
 		
 			Date de naissance:<br/>
-			<input type="date" name="DateNaiss" value=""/>
+			<input type="date" max=date() name="DateNaiss" value=""/>
 			<p>
+			
+			
 		
 			Illetrisme ?:<br/>
 			<select name="Illetre">
@@ -65,7 +66,7 @@
 				}?>
 			</select>
 			<p>
-			<input type="submit" value="Envoyer"/>
+			<input type="submit" value="Envoyer" />
 			<input type="reset" value="Annuler"/>
 		</form>
 	</body>

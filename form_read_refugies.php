@@ -1,14 +1,13 @@
 <?php require('database_connexion.php');
 	$id = null;
-	if (!empty($_GET['id'])
+	if (!empty($_GET['id']))
 	{
 		$id = $_REQUEST['id'];
 	}
 	if (null==$id)
 	{
 		header("location:refugies_crud.php");
-	} else
-	{
+	} else {
 		$pdo = Database::connect();
 		$pdo-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "SELECT * FROM Refugies where IdRefugies=$id";
@@ -25,7 +24,7 @@
 		
 		Database::disconnect();
 	}
-
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -133,13 +132,13 @@ A7" data-wp- preserve="%3Cscript%20src%3D%22js%2Fbootstrap.min.js%22%3E%3C%2Fscr
                                             <div class="controls">
                                                 <label class="checkbox">
                                                     <?php 
-	if ($data['Conscient']==1)
-	{
-		echo('Oui');
-	}else{
-		echo('Non');
-	}
-	?>
+														if ($data['Conscient']==1)
+														{
+															echo('Oui');
+														}else{
+															echo('Non');
+														}
+													?>
                                                 </label>
                                             </div>
                                             <p>
@@ -152,15 +151,15 @@ A7" data-wp- preserve="%3Cscript%20src%3D%22js%2Fbootstrap.min.js%22%3E%3C%2Fscr
                                                 <div class="controls">
                                                     <label class="checkbox">
                                                         <?php
-	foreach($pdo_natio->query($nationalite_sql) as $row_natio)
-	{
-		If ($row_natio['IdNationalite']==$data['idNationalite'])
-		{
-			$nom_natio=$row_natio['NomPays'];
-		}
-	}
-	echo $nom_natio;
-	?>
+															foreach($pdo_natio->query($nationalite_sql) as $row_natio)
+															{
+																If ($row_natio['IdNationalite']==$data['idNationalite'])
+																{
+																	$nom_natio=$row_natio['NomPays'];
+																}
+															}
+															echo $nom_natio;
+														?>
                                                     </label>
                                                 </div>
                                                 <p>
@@ -173,15 +172,15 @@ A7" data-wp- preserve="%3Cscript%20src%3D%22js%2Fbootstrap.min.js%22%3E%3C%2Fscr
                                                     <div class="controls">
                                                         <label class="checkbox">
                                                             <?php 
-	foreach($pdo_camp->query($camp_sql) as $row_camp)
-	{
-		If ($row_camp['IdCamp']==$data['idCamp'])
-		{
-			$ville_camp=$row_camp['Ville'];
-		}
-	}
-	echo $ville_camp;
-	?>
+																foreach($pdo_camp->query($camp_sql) as $row_camp)
+																{
+																	If ($row_camp['IdCamp']==$data['idCamp'])
+																	{
+																		$ville_camp=$row_camp['Ville'];
+																	}
+																}
+																echo $ville_camp;
+															?>
                                                         </label>
                                                     </div>
                                                     <p>

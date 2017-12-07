@@ -1,10 +1,11 @@
-<?php require 'database_connexion.php';
+<?php 
+	require ('database_connexion.php');
 	$id = null;
 	if(!empty($_GET['id']))
 	{
 		$id = $_REQUEST['id'];
 	}
-	if(null)==$id)
+	if(null==$id)
 	{
 		header("Location: refugies_crud.php");
 	}

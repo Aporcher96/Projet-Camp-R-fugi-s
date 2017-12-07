@@ -87,7 +87,7 @@ A7" data-wp-preserve="%3Cscript%20src%3D%22js%2Fbootstrap.js%22%3E%3C%2Fscript%3
 											$ville_camp=$row_camp['Ville'];
 											}
 									}
-									foreach($pdo_natio->query($nationalite_sql) as $row_natio0)
+									foreach($pdo_natio->query($nationalite_sql) as $row_natio)
 									{
 										If ($row_natio['IdNationalite']==$row['idNationalite'])
 										{
