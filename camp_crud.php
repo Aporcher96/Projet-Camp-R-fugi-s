@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+jk;mù
+*<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/hmtl; charset=UTF-8" >
@@ -43,10 +44,10 @@ alt="<script>" title="<script>" />
       <th>NbPlacesDispo</th>
       <p>
 
-      <th>Pays</th>
+      <th>Ville</th>
       <p>
 
-      <th>Ville</th>
+      <th>Pays</th>
       <p>
 
       <th>Alerte_Stock</th>
@@ -118,10 +119,10 @@ alt="<script>" title="<script>" />
         echo '<td>' . $row['NbPlacesDispo'] .  '</td>
 <p> ';
 
-        echo '<td>' . $nom_natio . '</td>
+        echo '<td>' . $row['Ville'] . '</td>
 <p> ';
 
-        echo '<td>' . $row['Ville'] . '</td>
+        echo '<td>' . $nom_natio . '</td>
 <p> ';
 
         echo '<td>' . $nom_centrale . '</td>
