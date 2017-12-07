@@ -58,20 +58,9 @@
 				
 		<!-- Section: intro -->
 		<section id="intro" class="intro">
-	<?php	if(!isset($_SESSION['connexion'])){
-		
-				echo('<div class="slogan">
-				<h4>Vous êtes connecté en tant que :  </h4>
+
 	
-			</div>');
-	}
-	else { 			
-				echo('<div class="slogan">
-				<h4>identifiant incorrecte </h4>
 	
-			</div>');
-		
-	}?>
 			<center>
 
 
@@ -143,10 +132,6 @@
 
 
 
-										}else{
-										
-										echo '<p class="couleur_texte">Les identifiants sont incorrecte.</p>';
-										 
 										}
 
 
@@ -158,15 +143,20 @@
 				}
 						//include 'header.php';
 
+
 						if(!isset($_SESSION['connexion'])){
+							
+								echo('<h4>Identifiant incorrecte </h4>');
 
 								echo '<p class="couleur_texte">Veuillez retourner à la page de connexion.</p>';
-				
+								
+						}else{				
+ 
+								echo('<h4>Vous êtes connecté en tant que :  </h4>');
+					
 
-						}else{
-
-							
-							echo $_SESSION['Role'];
+						
+							echo ('<p class="style_css">'.$_SESSION['Role'].'</p>');
 							
 							// Vérification du rôle de l'utilisateur et affichage du menu en fonction de ce dernier
 							switch(Trim($_SESSION['Role'])){
