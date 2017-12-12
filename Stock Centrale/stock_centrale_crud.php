@@ -28,7 +28,7 @@
 <br />
 <div class="row">
 
-                <a href="stock_camp_form_add.php" class="btn btn-success">Ajouter un stock</a>
+                <a href="stock_centrale_form_add.php" class="btn btn-success">Ajouter un stock</a>
 
 
 <br />
@@ -56,6 +56,9 @@
 <th>Alerte</th>
 <p>
 
+
+<th></th>
+<p>
 
 <th></th>
 <p>
@@ -162,7 +165,20 @@
                             echo '</td>
 <p>
 ';
-                            echo '</tr>
+
+
+                            echo'
+
+<td>';
+                          if ($alerte_centrale=='oui'){
+                            echo '<a class="btn btn-warning" href="form_commande_stock_centrale.php?id=' . $row['IdCentrale'] . $row['IdMateriel'] . ' ">Commande</a>';
+                          }
+                            echo '</td>
+
+<p>
+';
+
+echo '</tr>
 <p>
 ';
 }
