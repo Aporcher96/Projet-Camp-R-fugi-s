@@ -1,4 +1,4 @@
-<?php require'database_connexion.php'
+<?php require'database_connexion.php';
 $id=0;
 
 if (!empty($_GET['id']))
@@ -10,8 +10,8 @@ if (!empty($_POST))
 {
   $id= $_POST['id'];
   $pdo=Database::connect();
-  $pdo-setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION).
-  $sql = "DELETE * FROM camp WHERE Idcamp=$id";
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $sql = "DELETE FROM camp WHERE IdCamp=$id";
   $q = $pdo->prepare($sql);
   $q->execute(array($id));
   Database::disconnect();
@@ -50,8 +50,8 @@ if (!empty($_POST))
 <p>
 
 <br/>
-<form class="form-horizontal" action="file_delete_refugies.php" method="post">
-        <input type ="hidden" name="id" value="<?php echo $id,?>"/>
+<form class="form-horizontal" action="form_delete_camp.php" method="post">
+        <input type ="hidden" name="id" value="<?php echo $id;?>"/>
 
         Voulez vous vraiment supprimer un camp ?
 
@@ -71,6 +71,6 @@ if (!empty($_POST))
 
 </div>
 <p>
-                           
+
    </body>
  </html>

@@ -1,5 +1,4 @@
-jk;mù
-*<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/hmtl; charset=UTF-8" >
@@ -22,7 +21,7 @@ alt="<script>" title="<script>" />
     <div class="row">
 
     <br />
-    <h2>Crud en php</h2>
+    <h2>Camps de la centrale .. inserer var centrale du personnel .. </h2>
     </div>
 
 
@@ -37,36 +36,51 @@ alt="<script>" title="<script>" />
     <br />
     <table class="table table-hover table-bordered">
 
+    <br/>
+
     <thead>
-      <th>NbPlacesMax</th>
-      <p>
 
-      <th>NbPlacesDispo</th>
-      <p>
-
-      <th>Ville</th>
-      <p>
-
-      <th>Pays</th>
-      <p>
-
-      <th>Alerte_Stock</th>
-      <p>
-
-      <th>Alerte_Surpop</th>
-      <p>
-
-      <th>Nom_Centrale</th>
-      <p>
-
-
-    </thead>
+    <th>Capacité maximale</th>
     <p>
+
+    <th>Places disponibles</th>
+    <p>
+
+    <th>Ville</th>
+    <p>
+
+    <th>Pays</th>
+    <p>
+
+    <th>Nom Centrale</th>
+    <p>
+
+    <th>Alerte Surpop</th>
+    <p>
+
+    <th>Alerte Stock</th>
+    <p>
+
+      <th></th>
+      <p>
+
+      <th></th>
+      <p>
+        <th></th>
+<p>
+
+      <th></th>
+      <p>
+
+      </thead>
+      <p>
+
+
 <br />
 <tbody>
 
-    <?php include 'database_connexion.php'
-      $pdo = Datbase::connect();
+    <?php include 'database_connexion.php';
+      $pdo = Database::connect();
       $pdo_centrale = Database::connect();
       $pdo_natio =Database::connect();
       $sql = 'SELECT * FROM camp ORDER BY idcamp';
@@ -86,13 +100,13 @@ alt="<script>" title="<script>" />
         {
           if ($row_centrale['IdCentrale']==$row['IdCentrale'])
           {
-            $nom_centrale = $row_centrale['Nom_Centrale']
+            $nom_centrale = $row_centrale['NomCentrale'];
           }
         }
 
         foreach ($pdo_natio->query($natio_sql) as $row_natio)
         {
-          if ($row_natio['IdNationalite']==$row['IdNationalité'])
+          if ($row_natio['IdNationalite']==$row['IdNationalite'])
           {
             $nom_natio = $row_natio['NomPays'];
           }
@@ -111,46 +125,92 @@ alt="<script>" title="<script>" />
         }
 
 
-        echo '<tr>' ;
+        echo
 
-        echo '<td>' . $row['NbPlacesMax'] . '</td>
+'<tr>' ;
+
+        echo '
+
+<td>' . $row['NbPlacesMax'] . '</td>
 <p> ';
 
-        echo '<td>' . $row['NbPlacesDispo'] .  '</td>
+        echo '
+
+<td>' . $row['NbPlacesDispo'] .  '</td>
 <p> ';
 
-        echo '<td>' . $row['Ville'] . '</td>
+        echo '
+
+<td>' . $row['Ville'] . '</td>
 <p> ';
 
-        echo '<td>' . $nom_natio . '</td>
+        echo '
+
+<td>' . $nom_natio . '</td>
 <p> ';
 
-        echo '<td>' . $nom_centrale . '</td>
+        echo '
+
+<td>' . $nom_centrale . '</td>
 <p> ';
 
-        echo '<td>' . $Alerte_Stock . '</td>
+        echo '
+
+<td>' . $Alerte_Stock . '</td>
 <p> ';
 
-        echo '<td>' . $Alerte_Surpop . '</td>
+        echo '
+
+<td>' . $Alerte_Surpop . '</td>
 <p> ';
 
 
-        echo '<td>';
+        echo '
 
-        echo '<a class="btn" href="form_read_camp.php>id="' . $row['IdCamp']
-          . '">Afficher</a>"';
+<td>';
+
+
+        echo '<a class="btn" href="form_read_camp.php?id=' . $row['IdCamp'] . '">Afficher</a>';
         echo '</td>
+
+<p>
+';
+        echo '
+
+<td>';
+
+        echo '<a class="btn btn-success" href="form_modify_camp.php?id=' . $row['IdCamp'] .  '">Modifier</a>';
+        echo '</td>
+
+<p>
+';
+
+        echo'
+
+<td>';
+
+        echo '<a class="btn btn-danger" href="form_delete_camp.php?id=' . $row['IdCamp']  . ' ">Supprimer</a>';
+        echo '</td>
+
+<p>
+';
+
+
+        echo'
+
+<td>';
+        if ($Alerte_Stock=='oui'){
+          echo '<a class="btn btn-warning" href="form_commande_stock_centrale.php?id=' . $row['IdCamp'] . ' ">Commande</a>';
+      }
+          echo '</td>
+
 <p>';
 
-        echo '<a class="btn btn-success" href="form_modify_camp.php>id="' . $row['IdCamp']
-          . '">Modifier</a>"';
-        echo '</td>
-<p>';
-        echo '<a class="btn btn-danger" href="form_delete_camp.php>id="' . $row['IdCamp']
-          . '">Supprimer</a>"';
-        echo '</td>
-<p>';
-         }
+echo '</tr>
+<p>
+';
+
+}
 
 
           Database::disconnect();

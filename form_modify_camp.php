@@ -1,8 +1,8 @@
 <?php require 'database_connexion.php';
 $id = null;
-if ( !empty($get['id']))
+if ( !empty($_GET['id']))
 {
-  $id = $_request['id'];
+  $id = $_REQUEST['id'];
   }
   if (null==$id)
   {
@@ -19,15 +19,12 @@ if ( !empty($get['id']))
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $NbPlacesMax = $data['NbPlacesMax'];
         $NbPlacesDispo = $data['NbPlacesDispo'];
-        $Pays = $data['Pays'];
+
         $Ville = $data['Ville'];
         $Alerte_Stock = $data['Alerte_Stock'];
         $Alerte_Surpop = $data['Alerte_Surpop'];
-        $Nom_Centrale = $data['Nom_Centrale'];
+
         Database::disconnect();
-
-
-
  ?>
 
 
@@ -55,14 +52,14 @@ alt="<script>" title="<script>" />
   <div class = "row">
 
 <br/>
-<h3>Modifier un Camp</h3>
+<?php  echo('<h3>Modification du camp de la ville de ' . $data['Ville'] . '</h3> ');?>
 <p>
 
 </div>
 <p>
 
 <br/>
-<form method="post" action="send_data_modify_camp.php?id=<?php echo $id.;?>">
+<form method="post" action="send_data_modify_camp.php?id=<?php echo $id;?>">
 
 <br/>
 <div class="control-group">
@@ -94,81 +91,10 @@ alt="<script>" title="<script>" />
 </div>
   <p>
 
-<br/>
-<div class="control-group">
-                    <label class="control-label">Ville:</label>
-
-<br/>
-<div class="controls">
-                <input type="text" name="Ville" placeholder="Ville" value="<?php  echo!empty($Ville) ? $Ville : '';  ?>">
 
 </div>
 <p>
 
-
-</div>
-<p>
-
-<br/>
-<div class="control-group">
-                  <label class="control-label">Pays:</label>
-
-<br/>
-<div class="controls">
-              <input type="text" name="Pays" placeholder="Pays" value="<?php  echo!empty($Pays) ? $Pays : '';  ?>">
-
-</div>
-<p>
-
-
-</div>
-<p>
-
-<br/>
-<div class="control-group">
-                  <label class="control-label">Alerte_Stock:</label>
-
-<br/>
-<div class="controls">
-              <select name="Alerte_Stock">
-              <?php if ($data['Alerte_Stock']==){ ?>
-                      <option value="0">Non</option>
-                      <option value="1">Oui</option>
-              <?php }else{ ?>
-                  <option value="1">Oui</option>
-                  <option value="0">Non</option>
-              <?php } ?>
-
-
-              </select>
-
-</div>
-<p>
-
-
-</div>
-<p>
-
-  <br/>
-  <div class="control-group">
-                    <label class="control-label">Alerte_Surpop:</label>
-
-  <br/>
-  <div class="controls">
-                <select name="Alerte_Surpop">
-                <?php if ($data['Alerte_Surpop']==){ ?>
-                        <option value="0">Non</option>
-                        <option value="1">Oui</option>
-                <?php }else{ ?>
-                    <option value="1">Oui</option>
-                    <option value="0">Non</option>
-                <?php } ?>
-
-
-                </select>
-
-</div>
-<p>
 
 
 </div>

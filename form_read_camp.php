@@ -2,19 +2,18 @@
 $id = null ;
 if (!empty($_GET['id']))
 {
-  $id = $_request['id'];
+  $id = $_REQUEST['id'];
 }
 if (null == $id)
  {
-  header('locatin:camp_crud.php');
-}else
-{
+  header('location:camp_crud.php');
+}else{
   $pdo = Database::connect();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql ="SELECT * FROM Refugies where Idrefugies=$id";
+    $sql ="SELECT * FROM camp where IdCamp=$id";
     $q = $pdo->prepare($sql);
     $q->execute(array($id));
-    $data = $q->fetch(PDO::FETCH_ASSOC).
+    $data = $q->fetch(PDO::FETCH_ASSOC);
 
     $pdo_centrale = Database::connect();
     $pdo_natio = Database::connect();
@@ -55,7 +54,7 @@ if (null == $id)
 <div class="row">
 
 <br/>
-<h3>Edition</h3>
+<?php echo '<h3>Affichage du camp de la ville de: ' . $data['Ville']. '</h3>'; ?>
 <p>
 
 </div>
@@ -122,7 +121,7 @@ if (null == $id)
                 {
                   if ($row_centrale['IdCentrale']==$data['IdCentrale'])
                   {
-                    $nom_centrale=$row_centrale['NomCentrale']
+                    $nom_centrale=$row_centrale['NomCentrale'];
                   }
                 }
                 echo $nom_centrale;
@@ -142,7 +141,7 @@ if (null == $id)
   <div class = "controls">
           <label class ="checkbox">
               <?php
-                  if ($data['AlerteStock']==1)
+                  if ($data['Alerte_Stock']==1)
                   {
                     echo ('Oui');
                   }else {
@@ -164,7 +163,7 @@ if (null == $id)
     <div class = "controls">
             <label class ="checkbox">
                 <?php
-                    if ($data['AlerteSurpop']==1)
+                    if ($data['Alerte_Surpop']==1)
                     {
                       echo ('Oui');
                     }else {
@@ -186,14 +185,15 @@ if (null == $id)
 <div class = "controls">
           <label class ="checkbox">
               <?php
-                foreach ($pdo_natio->query($natio_sql) as $row_natio)
+                foreach ($pdo_natio->query($nation_sql) as $row_natio)
                 {
-                  if ($row_nation['IdNationalite']==$data['IdNationalite'])
+                  if ($row_natio['IdNationalite']==$data['IdNationalite'])
                   {
-                    $nom_natio=$row_natio['NomPays']
+                    $nom_natio=$row_natio['NomPays'];
                   }
                 }
-                echo $nom_centrale;
+                echo $nom_natio;
+
               ?>
           </label>
 </div>
@@ -214,7 +214,7 @@ if (null == $id)
 <p>
 
 </div>
-<p>  
+<p>
 
 
   </body>

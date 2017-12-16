@@ -1,45 +1,36 @@
 <?php
-
-/**
- *
- */
 class Database
 {
-  private static $bdName = 'refugies_project';
-  private static $bdHost = 'localhost';
-  private static $bdUsername = 'root';
-  private static $bdUserPassword = '';
-  private static $cont = null ;
+  private static $dbName = 'refugies_project' ;
+  private static $dbHost = 'localhost' ;
+  private static $dbUsername = 'root';
+  private static $dbUserPassword = '';
+  private static $cont = null;
 
-  public function _construct()
+  public function __construct()
   {
     die('Init function is not allowed');
   }
 
   public static function connect()
   {
-      If (null == self::$cont)
+    if ( null == self::$cont )
+    {
+      try
       {
-        try
-        {
-          self::$cont = new PDO("mysql:host=".self::$bdHost.";"
-          ."bdname=".self::$bdname, self::$bdUsername, self::$bdUserPassword);
-        }
-        catch(PDOException $e)
-        {
-          die($e->getMessage());
-        }
+        self::$cont = new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
       }
-      return self::$cont;
+      catch(PDOException $e)
+      {
+        die($e->getMessage());
+      }
+    }
+       return self::$cont;
   }
 
-  public static function
-  {
-      self::$cont = null;
-  }
-
+    public static function disconnect()
+    {
+        self::$cont = null;
+    }
 }
-
-
-
- ?>
+?>
