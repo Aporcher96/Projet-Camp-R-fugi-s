@@ -1,11 +1,11 @@
 <?php require ('database_connexion.php');
-$id=0;  
+$id=0;
 
 if(!empty($_GET['id']))
 {
-	echo($_GET['id']);
+	
 	$id=$_REQUEST['id'];
-}	
+}
 if(!empty($_POST))
 {
 	$id= $_POST['id'];
@@ -49,7 +49,7 @@ alt="<script>" title="<script>" />
 			<br/>
 			<form class="form-horizontal" action="file_delete_refugies.php" method="post">
 				<input type="hidden" name="id" value="<?php echo $id;?>"/>
-	
+
 				Êtes-vous sûre de vouloir supprimer ce réfugié ?
 
 				<br/>
@@ -57,7 +57,7 @@ alt="<script>" title="<script>" />
 					<button type="submit" class="btn btn-danger">Oui</button>
 					<a class="btn" href="refugies_crud.php">Non</a>
 				</div>
-				<p>	
+				<p>
 			</form>
 			<p>
 		</div>

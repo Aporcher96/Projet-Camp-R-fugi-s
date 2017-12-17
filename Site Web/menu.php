@@ -20,7 +20,7 @@
 		<link href="css/style.css" rel="stylesheet">
 		<link href="color/default.css" rel="stylesheet">
 		<link href="style index.css" rel="stylesheet">
-
+		 
 	</head>
 
 
@@ -36,15 +36,15 @@
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
 						<i class="fa fa-bars"></i>
 					</button>
-
-						<h1>Projet Réfugié</h1>
-
+					
+						<h1>Projet Migrant</h1>
+					
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				  <ul class="nav navbar-nav">
-					<li class="active"> <a href="Index.php">Accueil</a></li>
+					<li class="active"> <a href="Index.php">Acceuil</a></li>
 					<li> <a href="Index.php">Déconnexion</a></li>
 
 
@@ -55,24 +55,24 @@
 			<!-- /.container -->
 		</nav>
 
-
+				
 		<!-- Section: intro -->
 		<section id="intro" class="intro">
 
-
-
+	
+	
 			<center>
 
 
 
 
-
-
-
-
-
-
-
+			
+			
+			
+			
+			
+			
+			
 
 				<?php
 
@@ -86,7 +86,7 @@
 							if(empty($_POST['pass']))
 							{
 								echo '<p class="couleur_texte">Le champ Mot de passe est vide.</p>';
-
+								
 
 							}else{
 
@@ -106,7 +106,7 @@
 									{
 										echo '<p class="couleur_texte">Erreur de connexion à la base de données.</p>';
 										echo'</br>';
-
+										
 									}
 									else
 									{
@@ -145,64 +145,60 @@
 
 
 						if(!isset($_SESSION['connexion'])){
-
+							
 								echo('<h4>Identifiant incorrecte </h4>');
 
 								echo '<p class="couleur_texte">Veuillez retourner à la page de connexion.</p>';
-
-						}else{
-
+								
+						}else{				
+ 
 								echo('<h4>Vous êtes connecté en tant que :  </h4>');
+					
 
-
-
+						
 							echo ('<p class="style_css">'.$_SESSION['Role'].'</p>');
-
+							
 							// Vérification du rôle de l'utilisateur et affichage du menu en fonction de ce dernier
 							switch(Trim($_SESSION['Role'])){
 								case "Personnel administratif" :
 										?>
-									<form method="POST" action="Crud Refugies/refugies_crud.php">
-										<h4><br><INPUT TYPE="submit" style="background-color: black" NAME="Refugies" VALUE="ACCÉDEZ A LA GESTION DES RÉFUGIÉS DE VOTRE CAMP"></h4>
+									<FORM>
+										<h4><br><INPUT TYPE="button" NAME="Refugies" VALUE="ACCÉDEZ A LA GESTION DES RÉFUGIÉS DE VOTRE CAMP"></h4>										
 									</FORM>
 									<?php
 								break;
-
+							
 								case "Administrateur" :
 										?>
-									<form method="POST" action="CRUD Table Personnel/personnel_crud.php">
-										<h4><br><INPUT TYPE="submit" style="background-color: black"  NAME="Refugies" VALUE="ACCÉDEZ A LA GESTION DU PERSONNEL"></h4>
+									<FORM>
+										<h4><br><INPUT TYPE="button" NAME="Refugies" VALUE="ACCÉDEZ A LA GESTION DU PERSONNEL"></h4>
 									</FORM>
 									<?php
 								break;
-
+								
 								case "Gestionnaire Camp" :
 										?>
-									<form method="POST" action="Stock Camp/stock_camp_crud.php">
-										<h4><br><INPUT TYPE="submit" style="background-color: black"  NAME="Refugies" VALUE="ACCÉDEZ A LA GESTION DU STOCK DE VOTRE CAMP"></h4>
+									<FORM>
+										<h4><br><INPUT TYPE="button" NAME="Refugies" VALUE="ACCÉDEZ A LA GESTION DU STOCK DE VOTRE CAMP"></h4>
 									</FORM>
 									<?php
 								break;
-
+															
 								case "Gestionnaire centrale" :
 										?>
-									<form method="POST" action="Stock Centrale/stock_centrale_crud.php">
-										<h4><br><INPUT  TYPE="submit" style="background-color: black"  NAME="Refugies" VALUE="ACCÉDEZ A LA GESTION DU STOCK DE VOTRE CENTRALE"></h4>
-									</FORM><p></p>
-
-									<form method="POST" action="Camp_Refugies/camp_crud.php">
-										<h4><br><INPUT TYPE="submit" style="background-color: black"  NAME="Refugies" VALUE="ACCÉDEZ AUX CAMPS DE VOTRE CENTRALE"></h4>
+									<FORM>
+										<h4><br><INPUT TYPE="button" NAME="Refugies" VALUE="ACCÉDEZ A LA GESTION DU STOCK DE VOTRE CENTRALE"></h4>
 									</FORM>
 									<?php
 								break;
-
+							
 							}
 						}	?>
 			</center>
 		</section>
 		<!-- /Section: intro -->
-
-
+		
+		
 				<!-- Core JavaScript Files -->
 				<script src="js/jquery.min.js"></script>
 				<script src="js/bootstrap.min.js"></script>
@@ -211,7 +207,7 @@
 				<script src="js/wow.min.js"></script>
 				<!-- Custom Theme JavaScript -->
 				<script src="js/custom.js"></script>
-
+				
 
 </body>
 </html>

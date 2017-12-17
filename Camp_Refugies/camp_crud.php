@@ -28,7 +28,8 @@ alt="<script>" title="<script>" />
     <br />
     <div class="row">
 
-              <a href="form_add_camp.php" class ="btn btn-sucess">Ajouter un camp</a>
+
+              <a href="form_add_camp.php" class="btn btn-success">Ajouter un camp</a>
 
     <br />
     <div class="table-responsive">
@@ -174,16 +175,12 @@ echo '
 <p> ';
 
 
-        echo '
+echo '<td>';
+echo '<a class="btn" href="form_read_camp.php?id=' . $row['IdCamp'] . '">Afficher</a>';
+echo '</td> <p>';
 
-<td>';
 
-
-        echo '<a class="btn" href="form_read_camp.php?id=' . $row['IdCamp'] . '">Afficher</a>';
-        echo '</td>
-
-<p>
-';
+  
         echo '
 
 <td>';

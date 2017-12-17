@@ -55,7 +55,7 @@ alt="<script>" title="<script>" />
 <br />
 
 <br />
-<form method="post" action="send_data_modify_personnel?id=<?php echo $id ;?>">
+<form method="post" action="send_data_modify_personnel.php?id=<?php echo $id ;?>">
 
 <br />
 <div class="control-group ">
