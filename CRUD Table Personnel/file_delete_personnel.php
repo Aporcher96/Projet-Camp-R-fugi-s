@@ -2,10 +2,10 @@
 $id = 0;
 if (!empty($_GET['id']))
 {
-	echo($_GET['id']);
+
 	$id = $_REQUEST['id'];
 }
-if ( !empty($_GET['id']))
+if ( !empty($_POST))
 {
 	$id = $_POST['id'];
 	$pdo = Database::connect();
@@ -17,7 +17,7 @@ if ( !empty($_GET['id']))
 	header("Location: personnel_crud.php");
 }
 
-	
+
 ?>
 
 <!DOCTYPE html>
@@ -51,14 +51,14 @@ alt="<script>" title="<script>" />
 <br />
 <form class="form-horizontal" action="file_delete_personnel.php" method="post">
 	<input type="hidden" name="id" value="<?php echo $id;?>"/>
-	
+
 Êtes-vous sûr de vouloir supprimer ce membre du personnel ?
 
 <br />
 <div class="form-actions">
 	<button type="submit" class="btn btn-danger">Oui</button>
 	<a class="btn" href="personnel_crud.php">Non</a>
-	
+
 </div>
 <p>
 

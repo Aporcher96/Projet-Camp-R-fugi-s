@@ -11,7 +11,7 @@ if ( null==$id )
 
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "SELECT * FORM Personnel where IdPersonnel = $id";
+		$sql = "SELECT * FROM Personnel where IdPersonnel = $id";
 		$sql_centrale = "SELECT * FROM Centrale";
 		$sql_camp = "SELECT * FROM Camp";
 		$q = $pdo->prepare($sql);
@@ -20,11 +20,11 @@ if ( null==$id )
 		$login = $data['Login'];
 		$mdp = $data['Mdp'];
 		$role = $data['Role'];
-		$nom_centrale = $data['idCentrale'];
-		$ville_camp = $data['idCamp'];
+		// $nom_centrale = $data['idCentrale'];
+		// $ville_camp = $data['idCamp'];
 		Database::disconnect();
 	// }
-	
+
 ?>
 
 <!DOCTYPE html>
@@ -55,16 +55,16 @@ alt="<script>" title="<script>" />
 <br />
 
 <br />
-<form method="post" action="send_data_modify_personnel"?id=<?php echo $id ;?>">
+<form method="post" action="send_data_modify_personnel?id=<?php echo $id ;?>">
 
 <br />
 <div class="control-group ">
 	<label class="control-label">Login:</label>
-	
+
 <br />
 <div class="controls">
 	<input name="Login" type="text" placeholder="Login" value="<?php echo!empty($login) ? $login : ''; ?>">
-	
+
 </div>
 <p>
 
@@ -78,7 +78,7 @@ alt="<script>" title="<script>" />
 <br />
 <div class="controls">
 	<input name="Mdp" type="text" value="<?php echo!empty($mdp) ? $mdp : ''; ?>">
-	
+
 </div>
 <p>
 
@@ -88,11 +88,11 @@ alt="<script>" title="<script>" />
 <br />
 <div class="control-group">
 	<label class="control-label">Role:</label>
-	
+
 <br />
 <div class="controls">
 	<input name="Role" type="text" value="<?php echo!empty($role) ? $role : ''; ?>">
-	
+
 </div>
 <p>
 
@@ -104,7 +104,7 @@ alt="<script>" title="<script>" />
 	<label class="control-label">Centrale:</label>
 	<select name="Centrale">
 		<?php
-		foreach ($pdo->query($sql_centrale) as $row
+		foreach ($pdo->query($sql_centrale) as $row)
 		{
 			if ($data['idcentrale']!=$row['IdCentrale'])
 			{
@@ -114,6 +114,7 @@ alt="<script>" title="<script>" />
 				echo ('<option value='.$row['IdCentrale'].' selected>'.$row['NomCentrale'].'</option>');
 			}
 		}
+		echo('<option value='.vide.'>'." ".'</option>');
 		?>
 	</select>
 
@@ -125,7 +126,7 @@ alt="<script>" title="<script>" />
 	<label class="control-label">Camp:</label>
 	<select name="Camp">
 		<?php
-		foreach ($pdo->query($sql_camp) as $row
+		foreach ($pdo->query($sql_camp) as $row)
 		{
 			if ($data['idCamp']!=$row['IdCamp'])
 			{
@@ -135,6 +136,7 @@ alt="<script>" title="<script>" />
 				echo ('<option value='.$row['IdCamp'].' selected>'.$row['Ville'].'</option>');
 			}
 		}
+		echo('<option value='.vide.'>'." ".'</option>');
 		?>
 	</select>
 
@@ -155,7 +157,3 @@ alt="<script>" title="<script>" />
 
 </body>
 </html>
-	
-	
-	
-	

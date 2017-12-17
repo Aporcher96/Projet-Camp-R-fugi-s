@@ -15,14 +15,47 @@ if (null == $id)
 	$q = $pdo->prepare($sql);
 	$q->execute(array($id));
 	$data = $q->fetch(PDO::FETCH_ASSOC);
-	
-	$pdo_camp = Database::connect();
-	$pdo_centrale = Database::connect();
-	$camp_sql = 'SELECT * FROM camp';
-	$rep_camp = $pdo->query($camp_sql);
-	$centrale_sql = 'SELECT * FROM centrale';
-	$rep_centrale = $pdo->query($nationalite_sql);
-	
+
+	$pdo_postcamp= Database::connect();
+	$pdo_posycentrale = Database::connect();
+
+
+
+	$postcampsql ='SELECT * from postecamp ,camp ,personnel where camp.IdCamp=postecamp.Idcamp and postecamp.IdPersonnel=personnel.IdPersonnel  ';
+	$postcamprep = $pdo_postcamp->query($postcampsql);
+
+	$postcentralsql ='SELECT * from postecentrale ,centrale ,personnel where centrale.IdCentrale=postecentrale.IdCentrale and postecentrale.IdPersonnel=personnel.IdPersonnel';
+	$postcentralrep = $pdo_posycentrale->query($postcentralsql);
+
+
+	foreach ($pdo_postcamp->query($postcampsql) as $row_postcamp) {
+
+
+
+	if ($row_postcamp['IdPersonnel']==$data['IdPersonnel'])
+	{
+		$ville_camp=$row_postcamp['Ville'];
+		break;
+	}else{
+			$ville_camp="";
+
+	}
+	}
+
+foreach ($pdo_posycentrale->query($postcentralsql) as $row_postecentrale) {
+	if ($row_postecentrale['IdPersonnel']==$data['IdPersonnel'])
+					{
+
+							$centrale=$row_postecentrale['NomCentrale'];
+								break;
+							}else{
+									$centrale="";
+							}
+						}
+
+
+
+
 	Database::disconnect();
 }
 
@@ -68,7 +101,7 @@ alt="<script>" title="<script>" />
 	<label class="checkbox">
 		<?php echo $data['Login']; ?>
 	</label>
-	
+
 </div>
 <p>
 
@@ -78,7 +111,7 @@ alt="<script>" title="<script>" />
 <br />
 <div class="control-group">
 	<label class="control-label">Mdp:</label>
-	
+
 <br />
 <div class="controls">
 	<label class="checkbox">
@@ -100,7 +133,7 @@ alt="<script>" title="<script>" />
 	<label class="checkbox">
 		<?php echo $data['Role']; ?>
 	</label>
-	
+
 </div>
 <p>
 
@@ -110,47 +143,33 @@ alt="<script>" title="<script>" />
 <br />
 <div class="control-group">
 	<label class="control-label">Centrale:"</label>
-	
+
 </div>
 <div class="controls">
 	<label class="checkbox">
 		<?php
-		foreach($pdo_centrale->query($centrale_sql) as $row_centrale)
-		{
-			if ($row_centrale['IdCentrale']==$data['IdCentrale'])
-			{
-				$nom_centrale=$row_centrale['NomCentrale'];
-			}
-		}
-		echo $nom_centrale;
+		echo $centrale;
 		?>
 	</label>
-	
+
 </div>
 <p>
 
-</div>
+
 <p>
 
 <br />
 <div class="control-group">
-	<label class="control-label">Camp:"</label>
-	
+	<label class="control-label">Ville du camp:"</label>
+
 </div>
 <div class="controls">
 	<label class="checkbox">
 		<?php
-		foreach($pdo_camp->query($camp_sql) as $row_camp)
-		{
-			if ($row_camp['IdCamp']==$data['IdCamp'])
-			{
-				$ville_camp=$row_camp['Ville'];
-			}
-		}
 		echo $ville_camp;
 		?>
 	</label>
-	
+
 </div>
 <p>
 
@@ -158,6 +177,7 @@ alt="<script>" title="<script>" />
 <p>
 
 <br />
+</div>
 <div class="form-actions">
 	<a class="btn" href="personnel_crud.php">Retour</a>
 </div>
@@ -174,10 +194,3 @@ alt="<script>" title="<script>" />
 
 </body>
 </html>
-			
-		
-			
-			
-			
-			
-			
