@@ -75,7 +75,7 @@ alt="<script>" title="<script>" />
 <br />
 <div class="row">
 <br />
-<h3>Edition</h3>
+<?php echo '<h3>Affichage du materiel: <br/> ' .$data['NomMateriel'] . ' de la centrale ' . $data_centrale['NomCentrale']. '</h3>'; ?>
 <p>
 </div>
 <p>

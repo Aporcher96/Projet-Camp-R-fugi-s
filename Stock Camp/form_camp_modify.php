@@ -57,7 +57,7 @@ if (null==$id_materiel)
 <html>
  <head>
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <title>Mofication du stock</title>
+ <title>Mofication du stock du camp</title>
  <link href="css/bootstrap.min.css" rel="stylesheet">
  <img
 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRA
@@ -101,7 +101,7 @@ foreach($pdo->query($sql_materiel) as $row_mat_camp)
   <?php echo '<input type="hidden" name="id_materiel_camp" value="'.$data['IdMateriel'].'" /> <br/>'; ?>
 
 
-  
+
     <div class="control-group">
           <label class="control-label">Quantité possédé par votre camp</label>
 

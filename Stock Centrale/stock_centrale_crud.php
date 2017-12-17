@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html">
         <meta charset="UTF-8">
-        <title>Listes des Stocks Centrale</title> <!--A modifier en Stock du 'nomDeLaVilleDuCamp'-->
+        <title>Listes des Stocks Centrale</title>
 
         	<link href="css/bootstrap.min.css" rel="stylesheet">
         	<link href="css/responsive.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 <div class="row">
 
 <br />
-<h2>Stock Centrale</h2>
+<h2>Stock de la Centrale</h2>
 </div>
 
 
@@ -113,7 +113,7 @@
                               $alerte_centrale="non";
                             }
 
-                            //Nous sommes toujours dans le premier foreach
+
                             echo '
 
 <tr>';

@@ -21,7 +21,7 @@
 <div class="row">
 
 <br />
-<h2>Stock</h2>
+<h2>Stock du camp</h2>
 </div>
 
 
