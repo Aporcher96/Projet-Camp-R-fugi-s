@@ -21,7 +21,7 @@ alt="<script>" title="<script>" />
     <div class="row">
 
     <br />
-    <h2>Camps de la centrale .. inserer var centrale du personnel .. </h2>
+    <h2>Camps de la centrale</h2>
     </div>
 
 
@@ -83,12 +83,15 @@ alt="<script>" title="<script>" />
       $pdo = Database::connect();
       $pdo_centrale = Database::connect();
       $pdo_natio =Database::connect();
+      $pdo_mat = Database::connect();
       $sql = 'SELECT * FROM camp ORDER BY idcamp';
       $rep = $pdo->query($sql);
       $centrale_sql = 'SELECT * FROM centrale ';
       $rep_centrale = $pdo->query($centrale_sql);
       $natio_sql = 'SELECT * FROM nationalite';
       $rep_natio = $pdo->query($natio_sql);
+      $mat_sql = 'SELECT * FROM quantitecamp';
+      $rep_mat= $pdo->query($mat_sql);
 
 
 
@@ -112,11 +115,16 @@ alt="<script>" title="<script>" />
           }
         }
 
-        if ($row['Alerte_Stock']==1) {
-          $Alerte_Stock='oui';
-        }else{
-          $Alerte_Stock='non';
-        }
+        foreach ($pdo_mat -> query($mat_sql) as $row_mat)
+        {
+          if (($row['IdCamp']==$row_mat['IdCamp']) && ($row_mat['AlerteQtCamp']==1))
+          {
+            $Alerte_Stock='oui';
+            break;
+          }else{
+            $Alerte_Stock='non';
+          }
+      }
 
         if ($row['Alerte_Surpop']==1) {
           $Alerte_Surpop='oui';
@@ -154,14 +162,15 @@ alt="<script>" title="<script>" />
 <td>' . $nom_centrale . '</td>
 <p> ';
 
-        echo '
-
-<td>' . $Alerte_Stock . '</td>
-<p> ';
 
         echo '
 
 <td>' . $Alerte_Surpop . '</td>
+<p> ';
+
+echo '
+
+<td>' . $Alerte_Stock . '</td>
 <p> ';
 
 
@@ -200,7 +209,7 @@ alt="<script>" title="<script>" />
 
 <td>';
         if ($Alerte_Stock=='oui'){
-          echo '<a class="btn btn-warning" href="form_commande_stock_centrale.php?id=' . $row['IdCamp'] . ' ">Commande</a>';
+          echo '<a class="btn btn-warning" href="form_livraison_camp.php?id=' . $row['IdCamp'] . ' ">Livraison</a>';
       }
           echo '</td>
 
