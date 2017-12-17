@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require ('database_connexion.php');
 	$id = null;
 	if(!empty($_GET['id']))
@@ -9,7 +9,7 @@
 	{
 		header("Location: refugies_crud.php");
 	}
-	
+
 	$pdo = Database::connect();
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "SELECT * FROM Refugies where IdRefugies = $id";
@@ -90,7 +90,7 @@ alt="<script>" title="<script>" />
 				</div>
 				<p>
 				</br>
-				<div class="control-group">  
+				<div class="control-group">
 					<label class="control-label">Illetre</label>
 					<br/>
 					<div class="controls">
@@ -102,7 +102,7 @@ alt="<script>" title="<script>" />
 								<option value ="1">Oui</option>
 								<option value ="0">Non</option>
 							<?php } ?>
-	
+
 						</select>
 					</div>
 					<p>
@@ -119,7 +119,7 @@ alt="<script>" title="<script>" />
 								<option value="1">Oui</option>
 							<?php }else{ ?>
 								<option value="1">Oui</option>
-								<option value="0">Non</option>		
+								<option value="0">Non</option>
 							<?php } ?>
 						</select>
 					</div>
@@ -136,8 +136,8 @@ alt="<script>" title="<script>" />
 							<option value="1">Oui</option>
 						<?php }else{ ?>
 							<option value="0">Oui</option>
-							<option value="1">Non</option>	
-						<?php } ?>	
+							<option value="1">Non</option>
+						<?php } ?>
 					</select>
 				</div>
 				<p>
@@ -189,7 +189,3 @@ alt="<script>" title="<script>" />
 		<p>
 	</body>
 </html>
-
-		
-		
-	

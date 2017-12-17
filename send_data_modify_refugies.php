@@ -2,7 +2,8 @@
 require ('database_connexion.php');
 $id = null;
 $errornom = 0;
-$errorprenom=1;
+$errorprenom=0;
+
 if (!empty($_GET["id"]))
 {
 	$id = $_REQUEST["id"];
@@ -26,5 +27,30 @@ if (($errornom == 1) || ($errorprenom == 1))
 }
 $pdo = Database::connect();
 
-$stmt = $pdo->prepare("UPDATE refugies SET Nom = :Nom, Prenom= :Prenom, DateNaiss= :DateNaiss, Illetre= :Illetre, Blesse= :Blesse, Conscient= :Conscient, IdNationalite= :IdNationalite, IdCamp= :IdCamp WHERE IdRefugies = $id");
+$stmt = $pdo->prepare("UPDATE refugies SET Nom = :Nom, Prenom= :Prenom, DateNaiss= :DateNaiss, Illetre= :Illetre, Blesse= :Blesse, Conscient= :Conscient, IdNationalite= :Nationalite, IdCamp= :Camp WHERE IdRefugies = $id");
 
+$stmt->bindParam(':Nom', $nom);
+$stmt->bindParam(':Prenom', $prenom);
+$stmt->bindParam(':DateNaiss', $datenaiss);
+$stmt->bindParam(':Illetre', $illetre);
+$stmt->bindParam(':Blesse', $blesse);
+$stmt->bindParam(':Conscient', $conscient);
+$stmt->bindParam(':Nationalite', $idnationalite);
+$stmt->bindParam(':Camp', $idcamp);
+
+$nom=$_POST['Nom'];
+$prenom=$_POST['Prenom'];
+$datenaiss=$_POST['DateNaiss'];
+$illetre=$_POST['Illetre'];
+$blesse=$_POST['Blesse'];
+$conscient=$_POST['Conscient'];
+$idnationalite=$_POST['Nationalite'];
+$idcamp=$_POST['Camp'];
+
+try {
+	$stmt->execute();
+} catch (Exception $e) {
+	echo $e->getMessage;
+}
+header("Location: refugies_crud.php");
+?>

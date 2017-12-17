@@ -14,14 +14,14 @@
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
 		$data = $q->fetch(PDO::FETCH_ASSOC);
-		
+
 		$pdo_camp=Database::connect();
 		$pdo_natio=Database::connect();
 		$camp_sql='SELECT * FROM camp';
 		$rep_camp= $pdo->query($camp_sql);
 		$nationalite_sql='SELECT * FROM nationalite';
 		$rep_natio = $pdo->query($nationalite_sql);
-		
+
 		Database::disconnect();
 	}
 ?>
@@ -93,7 +93,7 @@ A7" data-wp- preserve="%3Cscript%20src%3D%22js%2Fbootstrap.min.js%22%3E%3C%2Fscr
                                     <br/>
                                     <div class="controls">
                                         <label class="checkbox">
-                                            <?php 
+                                            <?php
 												if ($data['Illetre']==1)
 												{
 													echo('Oui');
@@ -112,7 +112,7 @@ A7" data-wp- preserve="%3Cscript%20src%3D%22js%2Fbootstrap.min.js%22%3E%3C%2Fscr
                                         <br/>
                                         <div class="controls">
                                             <label class="checkbox">
-                                                <?php 
+                                                <?php
 													if ($data['Blesse']==1)
 													{
 														echo('Oui');
@@ -131,7 +131,7 @@ A7" data-wp- preserve="%3Cscript%20src%3D%22js%2Fbootstrap.min.js%22%3E%3C%2Fscr
                                             <br/>
                                             <div class="controls">
                                                 <label class="checkbox">
-                                                    <?php 
+                                                    <?php
 														if ($data['Conscient']==1)
 														{
 															echo('Oui');
@@ -171,7 +171,7 @@ A7" data-wp- preserve="%3Cscript%20src%3D%22js%2Fbootstrap.min.js%22%3E%3C%2Fscr
                                                     <br/>
                                                     <div class="controls">
                                                         <label class="checkbox">
-                                                            <?php 
+                                                            <?php
 																foreach($pdo_camp->query($camp_sql) as $row_camp)
 																{
 																	If ($row_camp['IdCamp']==$data['idCamp'])
